@@ -25,7 +25,7 @@ function playRPS(playerSelection, computerSelection) {
     }
     if (str === "rock" && computerSelection === "scissors") {
         return "You Won! Rock beats scissors"
-        playerScore++
+        playerScore++ 
     }
     if (str === "paper" && computerSelection === "rock") {
         return "You Won! Paper beats Rock"
@@ -56,12 +56,21 @@ const rockbtn = document.getElementById('rockButton');
 const paperbtn = document.getElementById('paperButton');
 const scissorbtn = document.getElementById('scissorButton');
 
+
 function game() {
     let playerScore = 0;
     let computerScore = 0;
-    while (playerScore !== 5 || computerScore !== 5) {
-        if (rockbtn.onclick){
-            playRPS ("rock", getComputerChoice())
+    let play = true;
+
+    function checkGameOver() {
+        if (playerScore === 5 || computerScore === 5) {
+            play = false;
+        }
+    }
+
+    while (play) {
+        rockbtn.onclick = function() {
+            const result = playRPS ("rock", getComputerChoice())
             if (result.startsWith("You Won")) {
                 playerScore++
                 
@@ -69,9 +78,10 @@ function game() {
                 computerScore++
                
             }
+            checkGameOver();
         }
-        if (paperbtn.onclick) {
-            playRPS("paper", getComputerChoice())
+        paperbtn.onclick = function() {
+            const result = playRPS("paper", getComputerChoice())
                 if (result.startsWith("You Won")) {
                     playerScore++
                    
@@ -79,9 +89,10 @@ function game() {
                     computerScore++
                    
                 } 
+                checkGameOver();
         }
-        if (scissorbtn.onclick) {
-            playRPS("scissor", getComputerChoice())
+        scissorbtn.onclick = function() {
+            const result = playRPS("scissor", getComputerChoice())
             if (result.startsWith("You Won")) {
                 playerScore++
                 
@@ -89,15 +100,10 @@ function game() {
                 computerScore++
                 
             } 
+            checkGameOver();
         }
     }
-    if (playerScore > computerScore){
-        return "You won the tournament"
-    } else if (computerScore > playerScore){
-        return "You lost the tournament"
-    } else {
-        return "tie"
-    }
+
  }
 
 console.log( game() );

@@ -52,34 +52,57 @@ function playRPS(playerSelection, computerSelection) {
 }
 
 
-const rockbtn = document.querySelector('#rockButton');
-const paperbtn = document.querySelector('#paperButton');
-const scissorbtn = document.querySelector('#scissorButton');
+const rockbtn = document.getElementById('rockButton');
+const paperbtn = document.getElementById('paperButton');
+const scissorbtn = document.getElementById('scissorButton');
 
-
-
-function game2() {
+function game() {
     let playerScore = 0;
     let computerScore = 0;
-
-    if (rockbtn.onclick) {
-        
+    while (playerScore !== 5 || computerScore !== 5) {
+        if (rockbtn.onclick){
+            playRPS ("rock", getComputerChoice())
+            if (result.startsWith("You Won")) {
+                playerScore++
+                
+            } else if (result.startsWith("You Lose")) {
+                computerScore++
+               
+            }
+        }
+        if (paperbtn.onclick) {
+            playRPS("paper", getComputerChoice())
+                if (result.startsWith("You Won")) {
+                    playerScore++
+                   
+                } else if (result.startsWith("You Lose")) {
+                    computerScore++
+                   
+                } 
+        }
+        if (scissorbtn.onclick) {
+            playRPS("scissor", getComputerChoice())
+            if (result.startsWith("You Won")) {
+                playerScore++
+                
+            } else if (result.startsWith("You Lose")) {
+                computerScore++
+                
+            } 
+        }
     }
-
-    if (playerScore == 5){
-        return "Human won"
-        //document.getElementsByClassName('button').disabled = true;
-    } else (computerScore == 5) {
-        return "Computer won"
-        //document.getElementsByClassName('button').disabled = true;
+    if (playerScore > computerScore){
+        return "You won the tournament"
+    } else if (computerScore > playerScore){
+        return "You lost the tournament"
+    } else {
+        return "tie"
     }
-    
+ }
 
-}
+console.log( game() );
 
-
-
- function game() {
+ /*function game() {
     let playerScore = 0;
     let computerScore = 0;
 
@@ -103,9 +126,5 @@ function game2() {
     } else {
         return "tie"
     }
- }
- //console.log(game())
-
-
- const content = document.createElement('div');
-
+ }*/
+ 

@@ -43,13 +43,41 @@ function playRPS(playerSelection, computerSelection) {
         computerScore++
     }
     if (str === "scissors" && computerSelection === "paper") {
-        return "You Win! scissors beats paper"
+        return "You Won! scissors beats paper"
         playerScore++
     }
     if (str === "scissors" && computerSelection === "scissors") {
         return "Tie"
     }
 }
+
+
+const rockbtn = document.querySelector('#rockButton');
+const paperbtn = document.querySelector('#paperButton');
+const scissorbtn = document.querySelector('#scissorButton');
+
+
+
+function game2() {
+    let playerScore = 0;
+    let computerScore = 0;
+
+    if (rockbtn.onclick) {
+        
+    }
+
+    if (playerScore == 5){
+        return "Human won"
+        //document.getElementsByClassName('button').disabled = true;
+    } else (computerScore == 5) {
+        return "Computer won"
+        //document.getElementsByClassName('button').disabled = true;
+    }
+    
+
+}
+
+
 
  function game() {
     let playerScore = 0;
@@ -76,4 +104,8 @@ function playRPS(playerSelection, computerSelection) {
         return "tie"
     }
  }
- console.log(game())
+ //console.log(game())
+
+
+ const content = document.createElement('div');
+

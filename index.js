@@ -32,7 +32,7 @@ buttons.forEach((button) => {
                   console.log(playerScore);
               } else if (result.startsWith("You Lose")) {
                   computerScore++;
-                  document.getElementById("compScore").innerHTML = "computer score: " + computerScore;
+                  document.getElementById("compScore").innerHTML = "Computer score: " + computerScore;
                   console.log(computerScore);
                   }
               }
@@ -45,7 +45,7 @@ buttons.forEach((button) => {
                   console.log(playerScore);
               } else if (result.startsWith("You Lose")) {
                   computerScore++;
-                  document.getElementById("compScore").innerHTML = "computer score: " + computerScore;
+                  document.getElementById("compScore").innerHTML = "Computer score: " + computerScore;
                   console.log(computerScore);
                   }
               }
@@ -58,7 +58,7 @@ buttons.forEach((button) => {
                   console.log(playerScore);
               } else if (result.startsWith("You Lose")) {
                   computerScore++;
-                  document.getElementById("compScore").innerHTML = "computer score: " + computerScore;
+                  document.getElementById("compScore").innerHTML = "Computer score: " + computerScore;
                   console.log(computerScore);
                   }
               }

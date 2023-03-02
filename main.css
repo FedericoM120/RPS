@@ -1,0 +1,16 @@
+.header {
+    display: flex;
+    justify-content: center;
+}
+
+#container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.scores {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}

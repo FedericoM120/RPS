@@ -1,3 +1,4 @@
 # RPS
-#Check out a live preview of my game here:
-FedericoM120.github.io/RPS
+VISIT MY WEBPAGE USING THIS LINK:
+
+https://federicom120.github.io/RPS/

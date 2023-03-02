@@ -12,6 +12,60 @@ function getComputerChoice() {
     }
 }
 
+let playerScore = 0;
+let computerScore = 0;
+
+
+
+const buttons = document.querySelectorAll('button');
+
+buttons.forEach((button) => {
+
+    // and for each one we add a 'click' listener
+    button.addEventListener('click', function() {
+        if ((playerScore <= 4) && (computerScore <= 4)) {
+            if (button.id === 'rockButton') {
+                let result = playRPS("rock", getComputerChoice());
+                if (result.startsWith("You Won")) {
+                  playerScore++;
+                  document.getElementById("userScore").innerHTML = "Player score: " + playerScore;
+                  console.log(playerScore);
+              } else if (result.startsWith("You Lose")) {
+                  computerScore++;
+                  document.getElementById("compScore").innerHTML = "computer score: " + computerScore;
+                  console.log(computerScore);
+                  }
+              }
+
+              if (button.id === 'paperButton') {
+                let result = playRPS("paper", getComputerChoice());
+                if (result.startsWith("You Won")) {
+                  playerScore++;
+                  document.getElementById("userScore").innerHTML = "Player score: " + playerScore;
+                  console.log(playerScore);
+              } else if (result.startsWith("You Lose")) {
+                  computerScore++;
+                  document.getElementById("compScore").innerHTML = "computer score: " + computerScore;
+                  console.log(computerScore);
+                  }
+              }
+
+              if (button.id === 'scissorButton') {
+                let result = playRPS("scissors", getComputerChoice());
+                if (result.startsWith("You Won")) {
+                  playerScore++;
+                  document.getElementById("userScore").innerHTML = "Player score: " + playerScore;
+                  console.log(playerScore);
+              } else if (result.startsWith("You Lose")) {
+                  computerScore++;
+                  document.getElementById("compScore").innerHTML = "computer score: " + computerScore;
+                  console.log(computerScore);
+                  }
+              }
+        }
+    });
+  });
+
 
 function playRPS(playerSelection, computerSelection) {
     let str = playerSelection.toLowerCase();
@@ -21,116 +75,28 @@ function playRPS(playerSelection, computerSelection) {
     }
     if (str === "rock" && computerSelection === "paper") {
         return "You Lose! Paper beats Rock"
-        computerScore++
     }
     if (str === "rock" && computerSelection === "scissors") {
         return "You Won! Rock beats scissors"
-        playerScore++ 
     }
     if (str === "paper" && computerSelection === "rock") {
         return "You Won! Paper beats Rock"
-        playerScore++
     }
     if (str === "paper" && computerSelection === "paper") {
         return "tie"
     }
     if (str === "paper" && computerSelection === "scissors") {
         return "You Lose! Scissors beats paper"
-        computerScore++
     }
     if (str === "scissors" && computerSelection === "rock") {
         return "You Lose! Rock beats scissors"
-        computerScore++
     }
     if (str === "scissors" && computerSelection === "paper") {
         return "You Won! scissors beats paper"
-        playerScore++
     }
     if (str === "scissors" && computerSelection === "scissors") {
         return "Tie"
     }
 }
 
-
-const rockbtn = document.getElementById('rockButton');
-const paperbtn = document.getElementById('paperButton');
-const scissorbtn = document.getElementById('scissorButton');
-
-
-function game() {
-    let playerScore = 0;
-    let computerScore = 0;
-    let play = true;
-
-    function checkGameOver() {
-        if (playerScore === 5 || computerScore === 5) {
-            play = false;
-        }
-    }
-
-    while (play) {
-        rockbtn.onclick = function() {
-            const result = playRPS ("rock", getComputerChoice())
-            if (result.startsWith("You Won")) {
-                playerScore++
-                
-            } else if (result.startsWith("You Lose")) {
-                computerScore++
-               
-            }
-            checkGameOver();
-        }
-        paperbtn.onclick = function() {
-            const result = playRPS("paper", getComputerChoice())
-                if (result.startsWith("You Won")) {
-                    playerScore++
-                   
-                } else if (result.startsWith("You Lose")) {
-                    computerScore++
-                   
-                } 
-                checkGameOver();
-        }
-        scissorbtn.onclick = function() {
-            const result = playRPS("scissor", getComputerChoice())
-            if (result.startsWith("You Won")) {
-                playerScore++
-                
-            } else if (result.startsWith("You Lose")) {
-                computerScore++
-                
-            } 
-            checkGameOver();
-        }
-    }
-
- }
-
-console.log( game() );
-
- /*function game() {
-    let playerScore = 0;
-    let computerScore = 0;
-
-    for (let i = 0; i < 5; i++) {
-        let userInput = prompt("Please enter rock paper or scissors")
-        let result = playRPS(userInput, getComputerChoice())
-        console.log(result)
-
-        if (result.startsWith("You Won")) {
-            playerScore++
-        } else if (result.startsWith("You Lose")) {
-            computerScore++
-        }
-         
-    }
-
-    if (playerScore > computerScore){
-        return "You won the tournament"
-    } else if (computerScore > playerScore){
-        return "You lost the tournament"
-    } else {
-        return "tie"
-    }
- }*/
  
